@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadah Al Khozama – Project Management Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #2B4C7E;
+    --navy-dark: #1E3660;
+    --navy-deeper: #152844;
+    --coral:  #E77E66;
+    --coral-light: #F2A898;
+    --coral-dark:  #C4614A;
+    --slate:  #507290;
+    --charcoal: #1A202C;
+    --ice:    #F0F4F8;
+    --ice-mid: #DCE6EF;
+    --white:  #FFFFFF;
+    --border-navy: rgba(43,76,126,0.18);
+    --border-slate: rgba(80,114,144,0.22);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--charcoal);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5%;
+    background: rgba(43,76,126,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--coral-light); font-weight: 300; }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: rgba(255,255,255,0.72);
+    font-size: 0.82rem; letter-spacing: 0.07em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--coral-light); }
+
+  .nav-cta {
+    background: var(--coral); color: #fff;
+    padding: 0.5rem 1.3rem; border-radius: 2px;
+    text-decoration: none; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--coral-dark); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 10rem 5% 6rem;
+    background: var(--navy);
+    position: relative; overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: var(--coral);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--coral-light); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 2.5rem; height: 1px; background: var(--coral);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    font-weight: 700; line-height: 1.1; color: #fff;
+    max-width: 720px; margin-bottom: 1.75rem;
+  }
+  .hero h1 em { font-style: normal; color: var(--coral-light); }
+
+  .hero-sub {
+    font-size: 1.02rem; color: rgba(255,255,255,0.62);
+    max-width: 500px; margin-bottom: 3rem; line-height: 1.85;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--coral); color: #fff;
+    padding: 0.85rem 2rem; border-radius: 2px;
+    text-decoration: none; font-weight: 600; font-size: 0.82rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--coral-dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.85);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    text-decoration: none; font-size: 0.82rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--coral-light); color: var(--coral-light); }
+
+  .hero-stats {
+    margin-top: 5rem;
+    display: flex; gap: 4rem; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.12); padding-top: 3rem;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; color: var(--coral-light); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.45);
+    letter-spacing: 0.07em; text-transform: uppercase; margin-top: 0.35rem;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 5%; }
+
+  .section-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 0.85rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block; width: 1.75rem; height: 2px; background: var(--coral);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.2; color: var(--navy);
+    margin-bottom: 1rem;
+  }
+
+  /* ABOUT — white bg */
+  .about { background: var(--white); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .about-text p {
+    color: var(--charcoal); font-size: 0.97rem; line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 2rem;
+  }
+
+  .feature-chip {
+    display: flex; align-items: center; gap: 0.55rem;
+    font-size: 0.8rem; color: var(--slate);
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--border-slate); border-radius: 2px;
+    background: var(--ice);
+  }
+  .feature-chip::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--coral); flex-shrink: 0;
+  }
+
+  .about-quote {
+    background: var(--navy);
+    border-left: 4px solid var(--coral);
+    padding: 2.5rem;
+    border-radius: 2px;
+  }
+  .about-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; line-height: 1.75;
+    color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;
+  }
+  .quote-author {
+    font-size: 0.78rem; color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .quote-author strong { color: var(--coral-light); }
+
+  /* VISION / MISSION — ice bg */
+  .vm-section { background: var(--ice); }
+  .vm-section .section-title { color: var(--navy); }
+
+  .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; margin-top: 2.5rem; }
+
+  .vm-card {
+    padding: 2.5rem; border-radius: 2px;
+  }
+  .vm-card.vision {
+    background: var(--navy); color: #fff;
+    border-top: 4px solid var(--coral);
+  }
+  .vm-card.mission {
+    background: #fff; color: var(--charcoal);
+    border: 1px solid var(--border-navy);
+    border-top: 4px solid var(--slate);
+  }
+  .vm-card .card-eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 0.85rem;
+  }
+  .vm-card.vision .card-eyebrow { color: var(--coral-light); }
+  .vm-card.mission .card-eyebrow { color: var(--slate); }
+  .vm-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; margin-bottom: 1rem; line-height: 1.3;
+  }
+  .vm-card.vision h3 { color: #fff; }
+  .vm-card.mission h3 { color: var(--navy); }
+  .vm-card p { font-size: 0.92rem; line-height: 1.8; }
+  .vm-card.vision p { color: rgba(255,255,255,0.72); }
+  .vm-card.mission p { color: var(--charcoal); }
+
+  /* VALUES — white */
+  .values-section { background: var(--white); }
+
+  .values-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem;
+  }
+
+  .value-card {
+    padding: 2rem; background: var(--ice);
+    border: 1px solid var(--border-navy); border-radius: 2px;
+    border-top: 3px solid transparent;
+    transition: border-top-color 0.2s;
+  }
+  .value-card:hover { border-top-color: var(--coral); }
+
+  .value-num {
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 0.65rem;
+  }
+  .value-card h3 { font-size: 0.97rem; font-weight: 600; color: var(--navy); margin-bottom: 0.65rem; }
+  .value-card p { font-size: 0.85rem; color: var(--slate); line-height: 1.75; }
+
+  /* WHY JADAH — navy */
+  .why-section { background: var(--navy); }
+  .why-section .section-eyebrow { color: var(--coral-light); }
+  .why-section .section-eyebrow::before { background: var(--coral); }
+  .why-section .section-title { color: #fff; }
+
+  .why-list {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 2px;
+    overflow: hidden; margin-top: 2.5rem;
+  }
+
+  .why-item {
+    background: var(--navy-dark); padding: 2rem;
+    border-top: 3px solid transparent;
+    transition: border-top-color 0.2s, background 0.2s;
+  }
+  .why-item:hover { border-top-color: var(--coral); background: var(--navy-deeper); }
+
+  .why-icon {
+    width: 34px; height: 34px; background: rgba(231,126,102,0.15);
+    border-radius: 2px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem; font-size: 1rem; color: var(--coral-light);
+  }
+  .why-item h3 { font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 0.45rem; }
+  .why-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* PROJECTS — ice */
+  .projects-section { background: var(--ice); }
+  .projects-section .section-title { color: var(--navy); }
+
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem;
+  }
+
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border-navy); border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(43,76,126,0.12); }
+
+  .project-header {
+    background: var(--navy); padding: 1.4rem 1.5rem 1rem;
+    border-bottom: 3px solid var(--coral);
+  }
+  .project-tag {
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--coral-light); margin-bottom: 0.4rem;
+  }
+  .project-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; line-height: 1.3; color: #fff;
+  }
+
+  .project-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--ice-mid);
+  }
+  .p-stat {
+    padding: 0.9rem; text-align: center;
+    border-right: 1px solid var(--ice-mid);
+  }
+  .p-stat:last-child { border-right: none; }
+  .p-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--navy); line-height: 1;
+  }
+  .p-stat-label { font-size: 0.63rem; color: var(--slate); margin-top: 0.2rem; line-height: 1.3; }
+
+  .project-body { padding: 1.1rem 1.4rem; }
+  .project-body p { font-size: 0.82rem; color: var(--charcoal); line-height: 1.7; }
+  .project-scope {
+    margin-top: 0.8rem; padding-top: 0.8rem;
+    border-top: 1px solid var(--ice-mid);
+    font-size: 0.73rem; color: var(--slate);
+  }
+
+  /* SERVICES — white */
+  .services-section { background: var(--white); }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2.5rem;
+  }
+
+  .service-card {
+    background: var(--ice); padding: 1.75rem;
+    border: 1px solid var(--border-slate); border-radius: 2px;
+    border-left: 3px solid var(--slate);
+    transition: border-left-color 0.2s;
+  }
+  .service-card:hover { border-left-color: var(--coral); }
+
+  .service-card h3 {
+    font-size: 0.92rem; font-weight: 600; color: var(--navy);
+    margin-bottom: 0.65rem;
+    display: flex; align-items: center; gap: 0.55rem;
+  }
+  .service-card h3::before {
+    content: ''; width: 7px; height: 7px; background: var(--coral);
+    border-radius: 1px; flex-shrink: 0;
+  }
+  .service-card p { font-size: 0.83rem; color: var(--charcoal); line-height: 1.72; }
+
+  /* ROLES — navy */
+  .roles-section { background: var(--navy-dark); }
+  .roles-section .section-eyebrow { color: var(--coral-light); }
+  .roles-section .section-eyebrow::before { background: var(--coral); }
+  .roles-section .section-title { color: #fff; }
+
+  .roles-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2.5rem;
+  }
+
+  .role-card {
+    background: rgba(255,255,255,0.05); padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 2px;
+    border-top: 3px solid var(--slate);
+    transition: border-top-color 0.2s;
+  }
+  .role-card:hover { border-top-color: var(--coral); }
+
+  .role-badge {
+    display: inline-block;
+    font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--coral-light); background: rgba(231,126,102,0.12);
+    padding: 0.28rem 0.65rem; border-radius: 1px; margin-bottom: 0.85rem;
+    border: 1px solid rgba(231,126,102,0.2);
+  }
+  .role-card h3 { font-size: 0.97rem; font-weight: 600; color: #fff; margin-bottom: 0.65rem; }
+  .role-card p { font-size: 0.84rem; color: rgba(255,255,255,0.58); line-height: 1.75; }
+
+  /* CONTACT — coral */
+  .contact-section {
+    background: var(--coral); color: #fff; text-align: center;
+  }
+  .contact-section .section-eyebrow { color: rgba(255,255,255,0.75); justify-content: center; }
+  .contact-section .section-eyebrow::before { background: rgba(255,255,255,0.6); }
+  .contact-section .section-title { color: #fff; }
+
+  .contact-lead {
+    font-size: 0.98rem; color: rgba(255,255,255,0.78);
+    max-width: 480px; margin: 0 auto 2.5rem;
+  }
+
+  .contact-cards {
+    display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+  }
+
+  .contact-card {
+    background: var(--navy); color: #fff;
+    padding: 2rem 2.5rem; border-radius: 2px;
+    min-width: 240px; text-align: left;
+  }
+  .contact-card .role {
+    font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--coral-light); margin-bottom: 0.45rem;
+  }
+  .contact-card .name { font-weight: 600; font-size: 0.97rem; margin-bottom: 1rem; color: #fff; }
+  .contact-detail {
+    font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-bottom: 0.35rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .contact-detail a { color: inherit; text-decoration: none; }
+  .contact-detail a:hover { color: var(--coral-light); }
+  .contact-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--coral-light); flex-shrink: 0; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deeper); padding: 2.25rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 3px solid var(--coral);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: #fff;
+  }
+  .footer-logo span { color: var(--coral-light); }
+  footer p { font-size: 0.76rem; color: rgba(255,255,255,0.35); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .about-grid, .vm-grid, .values-grid, .projects-grid,
+    .services-grid, .roles-grid { grid-template-columns: 1fr; }
+    .why-list { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 2.5rem; }
+    nav { padding: 1rem 4%; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .why-list { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.4rem; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Jadah <span>Al Khozama</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#roles">Our Role</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-eyebrow">Project Management Excellence</div>
+  <h1>Transforming Visions Into <em>Tangible Reality</em></h1>
+  <p class="hero-sub">Leading real estate and construction project management across the Kingdom of Saudi Arabia — from design through final delivery.</p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-primary">View Our Projects</a>
+    <a href="#services" class="btn-outline">Our Services</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">+100</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">+50B</div>
+      <div class="stat-label">SAR Total Contract Value</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">KSA</div>
+      <div class="stat-label">Kingdom-Wide Operations</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="section-title">One of the Kingdom's Leading Managing Agents</h2>
+      <p>Jadat Al Khuzama brings together a team of specialized professionals in developing and executing high-quality projects across the Kingdom of Saudi Arabia, in line with the highest professional standards.</p>
+      <p>We lead all stages of project development with efficiency and professionalism — from design, planning, and scheduling through studies, tendering, contracts, and financial flows, all the way to on-site supervision, final delivery, and successful project closure.</p>
+      <div class="about-features">
+        <div class="feature-chip">Design Management</div>
+        <div class="feature-chip">Cost Control</div>
+        <div class="feature-chip">Quality Assurance</div>
+        <div class="feature-chip">Risk Mitigation</div>
+        <div class="feature-chip">Procurement</div>
+        <div class="feature-chip">Site Supervision</div>
+      </div>
+    </div>
+    <div>
+      <div class="about-quote">
+        <blockquote>"We believe that trust is built through achievement, and we continuously strive to be the first choice for our partners in success."</blockquote>
+        <div class="quote-author">
+          Executive Management<br>
+          <strong>Eng. Ahmed Al-Najem &amp; Eng. Waleed Al-Essa</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="vm-section" id="vision">
+  <div class="section-eyebrow">Our Direction</div>
+  <h2 class="section-title">Vision &amp; Mission</h2>
+  <div class="vm-grid">
+    <div class="vm-card vision">
+      <div class="card-eyebrow">Vision</div>
+      <h3>Sustainable Excellence Across the Middle East</h3>
+      <p>To achieve sustainable excellence in the development and construction of high-quality projects, and to strengthen our position as a prestigious company in the construction and engineering sector across the Middle East.</p>
+    </div>
+    <div class="vm-card mission">
+      <div class="card-eyebrow">Mission</div>
+      <h3>Integrated Solutions, Lasting Relationships</h3>
+      <p>To deliver integrated construction and engineering solutions that meet our clients' aspirations, and to build long-term relationships through superior quality, operational efficiency, and the use of the best resources and latest technologies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="section-eyebrow">Our Values</div>
+  <h2 class="section-title">What Drives Us</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-num">01 — Integrity &amp; Trust</div>
+      <h3>The Foundation of Every Relationship</h3>
+      <p>We consider integrity as the foundation of all our dealings, and we aim to build long-term relationships based on trust with our partners.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02 — Team Spirit</div>
+      <h3>People Are Our Cornerstone</h3>
+      <p>We believe that our employees are the cornerstone of our success. We strive to provide a work environment that encourages collaboration and excellence.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03 — Innovation in Solutions</div>
+      <h3>Practical Approaches to Real Problems</h3>
+      <p>We adopt a practical approach that enables us to deliver innovative and effective solutions aligned with market needs and future aspirations.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">04 — Excellence in Execution</div>
+      <h3>The Highest Standards, Always</h3>
+      <p>We are committed to applying the highest standards of quality and professionalism in the execution of all our projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JADAH -->
+<section class="why-section">
+  <div class="section-eyebrow">Why Choose Us</div>
+  <h2 class="section-title">The Jadah Advantage</h2>
+  <div class="why-list">
+    <div class="why-item">
+      <div class="why-icon">◈</div>
+      <h3>Complex Mixed-Use Expertise</h3>
+      <p>Proven track record delivering complex mixed-use developments integrating hospitality, commercial, and residential components.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">◈</div>
+      <h3>Strong Cost &amp; Contract Control</h3>
+      <p>A rigorous cost and contract management culture ensures budgets are protected and contract obligations are met at every stage.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">◈</div>
+      <h3>Early Risk Identification</h3>
+      <p>Systematic risk identification and mitigation strategies are embedded from the planning phase through project closure.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">◈</div>
+      <h3>Stakeholder Management</h3>
+      <p>Proven interface and stakeholder management capabilities keep all parties aligned across complex multi-contractor environments.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">◈</div>
+      <h3>Design-to-Delivery Alignment</h3>
+      <p>Seamless alignment from design intent through to construction delivery, minimizing costly rework and scope variations.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">◈</div>
+      <h3>Digitalization &amp; Reporting</h3>
+      <p>Single-source-of-truth platforms, live dashboards, and structured reporting keep owners fully informed at every milestone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-eyebrow">Portfolio</div>
+  <h2 class="section-title">Selected Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">Residential — Luxury</div>
+        <h3>Al Khuzama Palaces</h3>
+      </div>
+      <div class="project-stats">
+        <div class="p-stat"><div class="p-stat-num">24K</div><div class="p-stat-label">sqm Land</div></div>
+        <div class="p-stat"><div class="p-stat-num">150M</div><div class="p-stat-label">SAR Budget</div></div>
+        <div class="p-stat"><div class="p-stat-num">24</div><div class="p-stat-label">Months</div></div>
+      </div>
+      <div class="project-body">
+        <p>8 luxurious residential palaces with diverse landscaped areas, designed for the highest levels of privacy and quality of living.</p>
+        <div class="project-scope">Managing Agent — construction phase, full engineering supervision</div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">Hospitality — Mixed Use</div>
+        <h3>Hotel Towers – Boulevard Experience</h3>
+      </div>
+      <div class="project-stats">
+        <div class="p-stat"><div class="p-stat-num">30K</div><div class="p-stat-label">sqm Land</div></div>
+        <div class="p-stat"><div class="p-stat-num">450M</div><div class="p-stat-label">SAR Budget</div></div>
+        <div class="p-stat"><div class="p-stat-num">36</div><div class="p-stat-label">Months</div></div>
+      </div>
+      <div class="project-body">
+        <p>Two 16-floor hotel towers with a commercial strip — a fully integrated urban destination combining hospitality and business.</p>
+        <div class="project-scope">Managing Agent — full lifecycle, design &amp; construction management</div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">Education — Rehabilitation</div>
+        <h3>Al Maarefa University – Al Nakheel</h3>
+      </div>
+      <div class="project-stats">
+        <div class="p-stat"><div class="p-stat-num">20K</div><div class="p-stat-label">sqm Land</div></div>
+        <div class="p-stat"><div class="p-stat-num">60M</div><div class="p-stat-label">SAR Budget</div></div>
+        <div class="p-stat"><div class="p-stat-num">14</div><div class="p-stat-label">Months</div></div>
+      </div>
+      <div class="project-body">
+        <p>Comprehensive rehabilitation of a five-story educational building to meet modern educational requirements and operational efficiency.</p>
+        <div class="project-scope">Managing Agent — construction management phase</div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">Residential — Riyadh</div>
+        <h3>Sky Lofts Tower, Riyadh</h3>
+      </div>
+      <div class="project-stats">
+        <div class="p-stat"><div class="p-stat-num">1.5K</div><div class="p-stat-label">sqm Land</div></div>
+        <div class="p-stat"><div class="p-stat-num">50M</div><div class="p-stat-label">SAR Budget</div></div>
+        <div class="p-stat"><div class="p-stat-num">18</div><div class="p-stat-label">Months</div></div>
+      </div>
+      <div class="project-body">
+        <p>Residential tower with ground-floor commercial units. Contemporary architectural expression rooted in Riyadh's local identity.</p>
+        <div class="project-scope">Full management — planning, design to execution</div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-tag">Residential — Riyadh</div>
+        <h3>Al Malaz Project, Riyadh</h3>
+      </div>
+      <div class="project-stats">
+        <div class="p-stat"><div class="p-stat-num">3.2K</div><div class="p-stat-label">sqm Land</div></div>
+        <div class="p-stat"><div class="p-stat-num">40M</div><div class="p-stat-label">SAR Budget</div></div>
+        <div class="p-stat"><div class="p-stat-num">16</div><div class="p-stat-label">Months</div></div>
+      </div>
+      <div class="project-body">
+        <p>Five-story residential building containing 105 housing units, optimized for family living and operational efficiency.</p>
+        <div class="project-scope">Full management — planning, design to execution</div>
+      </div>
+    </div>
+
+    <div class="project-card" style="background: var(--navy); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2.5rem;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--coral-light); margin-bottom: 0.5rem;">+100</div>
+      <div style="font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem;">Projects Successfully Delivered</div>
+      <a href="#contact" class="btn-outline" style="font-size: 0.75rem;">Discuss Your Project</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-eyebrow">What We Offer</div>
+  <h2 class="section-title">Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Planning &amp; Reporting</h3>
+      <p>Prepare project schedule and budget baselines; review and approve contractor plans; monitor progress; prepare monthly owner reports; raise early warning flags.</p>
+    </div>
+    <div class="service-card">
+      <h3>Contracts Management</h3>
+      <p>Coordinate and prepare contracts for contractors, vendors, and consultants; add and modify clauses to limit variations; manage execution through to closing.</p>
+    </div>
+    <div class="service-card">
+      <h3>Procurement Management</h3>
+      <p>Recommend contractor strategy; qualify suitable parties; prepare RFPs, evaluate bids; negotiate commercially with contractors, vendors, and consultants.</p>
+    </div>
+    <div class="service-card">
+      <h3>Cost Control</h3>
+      <p>Manage the dedicated project bank account; track expenditures, variations, and change orders throughout the entire project lifecycle.</p>
+    </div>
+    <div class="service-card">
+      <h3>Design Management</h3>
+      <p>Administrate timelines and deliverables of the design stage; monitor design progress; coordinate closely with project designers for best constructability outcomes.</p>
+    </div>
+    <div class="service-card">
+      <h3>Quality Management</h3>
+      <p>Establish quality management methodology; supervise work quality; perform regular site inspections; issue NCRs; review and approve contractor invoices.</p>
+    </div>
+    <div class="service-card">
+      <h3>Value Engineering</h3>
+      <p>Review design packages to create value and suggest alternatives; engage with designers in technical discussions for best constructability solutions.</p>
+    </div>
+    <div class="service-card">
+      <h3>Document Control</h3>
+      <p>Establish a project documentation management platform (e.g. Aconex); maintain clear project archives; maintain technical and commercial logs and registers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles-section" id="roles">
+  <div class="section-eyebrow">Our Role</div>
+  <h2 class="section-title">How We Engage</h2>
+  <div class="roles-grid">
+    <div class="role-card">
+      <div class="role-badge">PMCM</div>
+      <h3>Project &amp; Construction Management</h3>
+      <p>An integrated team representing the project owner across all stages through qualified specialists, ensuring professional execution supported by technical engineers specialized in quality.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-badge">PMO</div>
+      <h3>Project Management Office</h3>
+      <p>A specialized team that manages the project and leads all activities directly within structured frameworks to represent the owner's interests.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-badge">PMC</div>
+      <h3>Project Management Consultancy</h3>
+      <p>A professional project management team that monitors project progress and supports decision-makers to ensure the highest level of professionalism throughout.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-badge">DM</div>
+      <h3>Development Monitoring</h3>
+      <p>A specialized team that oversees the real estate developer's performance and monitors project progress in a supervisory capacity as a representative of the project owner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-eyebrow">Get in Touch</div>
+  <h2 class="section-title">Ready to Build Together?</h2>
+  <p class="contact-lead">Jadat Al Khuzama continues its journey with confidence — we'd be pleased to hear from you about any inquiries or collaboration opportunities.</p>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="role">Business Developer</div>
+      <div class="name">Eng. Ali Abdulaziz Al-Ruways</div>
+      <div class="contact-detail"><span class="contact-dot"></span><a href="tel:+966590594869">+966 590 594 869</a></div>
+      <div class="contact-detail"><span class="contact-dot"></span><a href="mailto:info@jadahalkhozama.com">info@jadahalkhozama.com</a></div>
+    </div>
+    <div class="contact-card">
+      <div class="role">General Inquiries</div>
+      <div class="name">Jadah Al Khozama HQ</div>
+      <div class="contact-detail"><span class="contact-dot"></span><a href="tel:+966556471177">+966 556 471 177</a></div>
+      <div class="contact-detail"><span class="contact-dot"></span><a href="mailto:info@jadahalkhozama.com">info@jadahalkhozama.com</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Jadah <span>Al Khozama</span></div>
+  <p>© 2025 Jadah Al Khozama Company. All rights reserved. Kingdom of Saudi Arabia.</p>
+</footer>
+
+<script>
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(43,76,126,0.99)'
+      : 'rgba(43,76,126,0.97)';
+  });
+</script>
+</body>
+</html>

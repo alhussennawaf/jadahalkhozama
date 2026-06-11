@@ -17,36 +17,6 @@ html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--white);color:var(--charcoal);line-height:1.7;}
 html[lang="ar"] body{font-family:'Tajawal',sans-serif;font-size:1.03em;}
 html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{font-family:'Tajawal',sans-serif;font-weight:700;}
-html[dir="rtl"] .section-eyebrow{flex-direction:row-reverse;}
-html[dir="rtl"] .section-eyebrow::before{display:none;}
-html[dir="rtl"] .section-eyebrow::after{content:'';display:block;width:1.75rem;height:2px;background:var(--coral);order:-1;}
-html[dir="rtl"] .hero-eyebrow{flex-direction:row-reverse;}
-html[dir="rtl"] .hero-eyebrow::before{display:none;}
-html[dir="rtl"] .hero-eyebrow::after{content:'';display:block;width:2.5rem;height:1px;background:var(--coral);order:-1;}
-html[dir="rtl"] .page-hero-eyebrow{flex-direction:row-reverse;}
-html[dir="rtl"] .page-hero-eyebrow::before{display:none;}
-html[dir="rtl"] .page-hero-eyebrow::after{content:'';display:block;width:2rem;height:1px;background:var(--coral);order:-1;}
-html[dir="rtl"] .feature-chip{flex-direction:row-reverse;}
-html[dir="rtl"] .about-quote{border-left:none;border-right:4px solid var(--coral);}
-html[dir="rtl"] .hero-actions{flex-direction:row-reverse;}
-html[dir="rtl"] .hero-stats{flex-direction:row-reverse;}
-html[dir="rtl"] .proj-scope{flex-direction:row-reverse;}
-html[dir="rtl"] .contact-detail{flex-direction:row-reverse;}
-html[dir="rtl"] .matrix-list li{flex-direction:row-reverse;text-align:right;justify-content:flex-end;}
-html[dir="rtl"] .matrix-list li::before{order:1;}
-html[dir="rtl"] .feature-chip{flex-direction:row-reverse;}
-html[dir="rtl"] .service-card h3{flex-direction:row-reverse;}
-html[dir="rtl"] .service-card h3::before{order:1;}
-html[dir="rtl"] .why-item{text-align:right;}
-html[dir="rtl"] .value-card{text-align:right;}
-html[dir="rtl"] .lifecycle-item{text-align:right;}
-html[dir="rtl"] .proj-scope::before{order:1;}
-html[dir="rtl"] .role-card{text-align:right;}
-html[dir="rtl"] .vm-card{text-align:right;}
-html[dir="rtl"] .proj-content{text-align:right;}
-html[dir="rtl"] .p-stat{text-align:center;}
-html[dir="rtl"] .service-card p{text-align:right;}
-html[dir="rtl"] .contact-card{text-align:right;}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.8rem 5%;background:rgba(43,76,126,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);gap:1rem;}
 .nav-logo img{height:clamp(28px,3.5vw,46px);width:auto;display:block;}
@@ -99,7 +69,62 @@ html[lang="ar"] .btn-primary{letter-spacing:0;text-transform:none;font-size:0.9r
 .btn-white{background:#fff;color:var(--coral);padding:0.85rem 2.2rem;border-radius:2px;font-weight:600;font-size:0.82rem;letter-spacing:0.07em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:transform 0.15s;}
 html[lang="ar"] .btn-white{letter-spacing:0;text-transform:none;font-size:0.9rem;}
 .btn-white:hover{transform:translateY(-2px);}
-</style>
+/* ── RTL overrides ── */
+html[dir="rtl"] .section-eyebrow{flex-direction:row-reverse;}
+html[dir="rtl"] .section-eyebrow::before{display:none;}
+html[dir="rtl"] .section-eyebrow::after{content:'';display:block;width:1.75rem;height:2px;background:var(--coral);order:-1;}
+html[dir="rtl"] .hero-eyebrow{flex-direction:row-reverse;}
+html[dir="rtl"] .hero-eyebrow::before{display:none;}
+html[dir="rtl"] .hero-eyebrow::after{content:'';display:block;width:2.5rem;height:1px;background:var(--coral);order:-1;}
+html[dir="rtl"] .page-hero-eyebrow{flex-direction:row-reverse;}
+html[dir="rtl"] .page-hero-eyebrow::before{display:none;}
+html[dir="rtl"] .page-hero-eyebrow::after{content:'';display:block;width:2rem;height:1px;background:var(--coral);order:-1;}
+html[dir="rtl"] .hero-actions{flex-direction:row-reverse;}
+html[dir="rtl"] .hero-stats{flex-direction:row-reverse;}
+html[dir="rtl"] .hero-sub{text-align:right;}
+html[dir="rtl"] .page-hero p{text-align:right;}
+html[dir="rtl"] .page-hero h1{text-align:right;}
+html[dir="rtl"] .about-text p{text-align:right;}
+html[dir="rtl"] .about-quote{border-left:none;border-right:4px solid var(--coral);}
+html[dir="rtl"] .about-quote blockquote{text-align:right;}
+html[dir="rtl"] .quote-author{text-align:right;}
+html[dir="rtl"] .feature-chip{flex-direction:row-reverse;}
+html[dir="rtl"] .feature-chip::before{flex-shrink:0;}
+html[dir="rtl"] .vm-card{text-align:right;}
+html[dir="rtl"] .vm-card p{text-align:right;}
+html[dir="rtl"] .value-card{text-align:right;}
+html[dir="rtl"] .value-card p{text-align:right;}
+html[dir="rtl"] .why-item{text-align:right;}
+html[dir="rtl"] .why-item p{text-align:right;}
+html[dir="rtl"] .why-icon{margin-left:auto;margin-right:0;}
+html[dir="rtl"] .service-card{border-left:none;border-right:3px solid var(--slate);}
+html[dir="rtl"] .service-card:hover{border-right-color:var(--coral);}
+html[dir="rtl"] .service-card h3{direction:rtl;}
+html[dir="rtl"] .service-card h3::before{display:none;}
+html[dir="rtl"] .service-card p{text-align:right;}
+html[dir="rtl"] .lifecycle-item{text-align:right;}
+html[dir="rtl"] .lifecycle-item p{text-align:right;}
+html[dir="rtl"] .role-card{text-align:right;}
+html[dir="rtl"] .role-card p{text-align:right;}
+html[dir="rtl"] .matrix-list li{direction:rtl;}
+html[dir="rtl"] .matrix-list li::before{display:none;}
+html[dir="rtl"] .proj-scope{direction:rtl;text-align:right;}
+html[dir="rtl"] .proj-scope::before{display:none;}
+html[dir="rtl"] .proj-content{text-align:right;direction:rtl;}
+html[dir="rtl"] .proj-tag{text-align:right;}
+html[dir="rtl"] .proj-title{text-align:right;}
+html[dir="rtl"] .proj-desc{text-align:right;}
+html[dir="rtl"] .proj-stats{flex-direction:row-reverse;}
+html[dir="rtl"] .p-stat{text-align:center;}
+html[dir="rtl"] .contact-detail{direction:rtl;}
+html[dir="rtl"] .contact-detail::before{display:none;}
+html[dir="rtl"] .contact-card{text-align:right;}
+html[dir="rtl"] .c-role{text-align:right;}
+html[dir="rtl"] .c-name{text-align:right;}
+html[dir="rtl"] .stat-label{text-align:right;}
+html[dir="rtl"] .phase-item{text-align:right;}
+html[dir="rtl"] .info-card{text-align:right;}
+html[dir="rtl"] section > p{text-align:right;}</style>
 </head>
 <body>
 <nav id="main-nav">
@@ -144,7 +169,7 @@ html[lang="ar"] .stat-label{letter-spacing:0;text-transform:none;font-size:0.82r
 .about-text p{color:var(--charcoal);font-size:0.97rem;line-height:1.85;margin-bottom:1.2rem;}
 .about-features{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:2rem;}
 .feature-chip{display:flex;align-items:center;gap:0.55rem;font-size:0.8rem;color:var(--slate);padding:0.55rem 0.85rem;border:1px solid var(--border-slate);border-radius:2px;background:var(--ice);}
-.feature-chip::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--coral);flex-shrink:0;}
+.feature-chip::before{content:'▸';color:var(--coral);flex-shrink:0;font-size:0.7rem;}
 .about-quote{background:var(--navy);border-left:4px solid var(--coral);padding:2.5rem;border-radius:2px;}
 .about-quote blockquote{font-family:'Playfair Display',serif;font-size:1.1rem;line-height:1.75;color:rgba(255,255,255,0.9);margin-bottom:1.5rem;}
 html[lang="ar"] .about-quote blockquote{font-family:'Tajawal',sans-serif;text-align:right;}
@@ -202,7 +227,7 @@ html[lang="ar"] .cta-strip h2{font-family:'Tajawal',sans-serif;}
   <div class="hero-stats">
     <div><div class="stat-num">+100</div><div class="stat-label" data-en="Projects Delivered" data-ar="مشروع منجز">Projects Delivered</div></div>
     <div><div class="stat-num">+50B</div><div class="stat-label" data-en="SAR Total Contract Value" data-ar="ريال إجمالي قيمة العقود">SAR Total Contract Value</div></div>
-    <div><div class="stat-num" data-en="KSA" data-ar="المملكة">KSA</div><div class="stat-label" data-en="Kingdom-Wide Operations" data-ar="عمليات على مستوى المملكة">Kingdom-Wide Operations</div></div>
+    <div><div class="stat-num" data-en="Riyadh" data-ar="الرياض">Riyadh</div><div class="stat-label" data-en="Kingdom-Wide Operations" data-ar="عمليات على مستوى المملكة">Kingdom-Wide Operations</div></div>
   </div>
 </section>
 <section class="about-section" id="about">
@@ -224,7 +249,7 @@ html[lang="ar"] .cta-strip h2{font-family:'Tajawal',sans-serif;}
     <div>
       <div class="about-quote">
         <blockquote data-en="&ldquo;We believe that trust is built through achievement, and we continuously strive to be the first choice for our partners in success.&rdquo;" data-ar="&ldquo;نؤمن بأن الثقة تُبنى بالإنجاز، ونسعى دائماً لأن نكون الخيار الأول لشركائنا في النجاح.&rdquo;">&ldquo;We believe that trust is built through achievement, and we continuously strive to be the first choice for our partners in success.&rdquo;</blockquote>
-        <div class="quote-author"><span data-en="Executive Management" data-ar="الإدارة التنفيذية">Executive Management</span><br><strong data-en="Eng. Ahmed Al-Najem &amp; Eng. Waleed Al-Essa" data-ar="م. أحمد النجم &amp; م. وليد العيسى">Eng. Ahmed Al-Najem &amp; Eng. Waleed Al-Essa</strong></div>
+        <div class="quote-author"><span data-en="Executive Management" data-ar="الإدارة التنفيذية">Executive Management</span><br><strong data-en="Eng. Ahmed Al-Najem &amp; Eng. Waleed Al-Essa" data-ar="م. أحمد الناجم &amp; م. وليد العيسى">Eng. Ahmed Al-Najem &amp; Eng. Waleed Al-Essa</strong></div>
       </div>
     </div>
   </div>

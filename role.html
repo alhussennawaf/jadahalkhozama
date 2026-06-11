@@ -32,7 +32,8 @@ html[dir="rtl"] .hero-actions{flex-direction:row-reverse;}
 html[dir="rtl"] .hero-stats{flex-direction:row-reverse;}
 html[dir="rtl"] .proj-scope{flex-direction:row-reverse;}
 html[dir="rtl"] .contact-detail{flex-direction:row-reverse;}
-html[dir="rtl"] .matrix-list li{flex-direction:row-reverse;}
+html[dir="rtl"] .matrix-list li{flex-direction:row-reverse;text-align:right;justify-content:flex-end;}
+html[dir="rtl"] .matrix-list li::before{order:1;margin-right:0;margin-left:0;}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.8rem 5%;background:rgba(43,76,126,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);gap:1rem;}
 .nav-logo img{height:clamp(28px,3.5vw,46px);width:auto;display:block;}
